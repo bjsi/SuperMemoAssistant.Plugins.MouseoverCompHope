@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{148DCB68
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperMemoAssistant.Plugins.MouseoverCompHope.Tests", "src\SuperMemoAssistant.Plugins.MouseoverCompHope.Tests\SuperMemoAssistant.Plugins.MouseoverCompHope.Tests.csproj", "{19556E60-81C0-472D-A39A-15E37DB84F4F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MouseoverPopup.Interop", "..\MouseoverPopup.Interop\MouseoverPopup.Interop.csproj", "{C2A1A16B-45C5-41E3-8948-B554CE311BFD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		1. Alpha (Debug)|Any CPU = 1. Alpha (Debug)|Any CPU
@@ -42,6 +44,16 @@ Global
 		{19556E60-81C0-472D-A39A-15E37DB84F4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19556E60-81C0-472D-A39A-15E37DB84F4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19556E60-81C0-472D-A39A-15E37DB84F4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2A1A16B-45C5-41E3-8948-B554CE311BFD}.1. Alpha (Debug)|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2A1A16B-45C5-41E3-8948-B554CE311BFD}.1. Alpha (Debug)|Any CPU.Build.0 = Debug|Any CPU
+		{C2A1A16B-45C5-41E3-8948-B554CE311BFD}.2. Beta (Release)|Any CPU.ActiveCfg = Release|Any CPU
+		{C2A1A16B-45C5-41E3-8948-B554CE311BFD}.2. Beta (Release)|Any CPU.Build.0 = Release|Any CPU
+		{C2A1A16B-45C5-41E3-8948-B554CE311BFD}.3. Stable (Release)|Any CPU.ActiveCfg = Release|Any CPU
+		{C2A1A16B-45C5-41E3-8948-B554CE311BFD}.3. Stable (Release)|Any CPU.Build.0 = Release|Any CPU
+		{C2A1A16B-45C5-41E3-8948-B554CE311BFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2A1A16B-45C5-41E3-8948-B554CE311BFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2A1A16B-45C5-41E3-8948-B554CE311BFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2A1A16B-45C5-41E3-8948-B554CE311BFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,6 +61,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{1A5F4176-E828-4817-A469-FB769703D731} = {50FD5DC7-D9B3-461D-B4BE-F46D28CB30B0}
 		{19556E60-81C0-472D-A39A-15E37DB84F4F} = {148DCB68-7526-4499-B86A-D234F6D366E2}
+		{C2A1A16B-45C5-41E3-8948-B554CE311BFD} = {50FD5DC7-D9B3-461D-B4BE-F46D28CB30B0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {27458F28-AE3A-4DF2-8C3C-CE0138FD5DB2}
