@@ -23,16 +23,12 @@ namespace SuperMemoAssistant.Plugins.MouseoverCompHope
       Validates = true)]
   public class MouseoverCompHopeCfg : CfgBase<MouseoverCompHopeCfg>, INotifyPropertyChangedEx
   {
-    [Title("Plugin Name")]
+    [Title("Mouseover ComputerHope Plugin")]
 
     [Heading("By Jamesb | Experimental Learning")]
 
     [Heading("Features:")]
-    [Text(@"- Load dictionary definitions from Oxford Dictionary of Computer Science")]
-
-    [Heading("General Settings")]
-    [Field(Name = "Path to index.html")]
-    public string PathToIndexHtml { get; set; } = @"C:\Users\james\Desktop\Oxford Dictionary Of Computer Science\index.html";
+    [Text(@"- Load dictionary definitions from ComputerHope")]
 
     [Heading("Keyword Scanning Settings")]
 
@@ -61,7 +57,7 @@ namespace SuperMemoAssistant.Plugins.MouseoverCompHope
 
     public override string ToString()
     {
-      return "Mouseover Comp Hope Settings";
+      return "Mouseover ComputerHope Settings";
     }
 
     public event PropertyChangedEventHandler PropertyChanged;

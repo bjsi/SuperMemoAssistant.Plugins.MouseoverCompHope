@@ -32,6 +32,7 @@
 namespace SuperMemoAssistant.Plugins.MouseoverCompHope
 {
   using System.Diagnostics.CodeAnalysis;
+  using MouseoverPopup.Interop;
   using SuperMemoAssistant.Services;
   using SuperMemoAssistant.Services.IO.HotKeys;
   using SuperMemoAssistant.Services.Sentry;
@@ -80,6 +81,11 @@ namespace SuperMemoAssistant.Plugins.MouseoverCompHope
     {
 
       LoadConfig();
+
+      var refs = new ReferenceRegexes(TitleRegexes, AuthorRegexes, LinkRegexes, SourceRegexes);
+      var opts = new KeywordScanningOptions(refs, Keywords.KeywordMap, CategoryPathRegexes);
+
+      this.RegisterProvider<IMouseoverSvc>(Name, new string[] { DictRegex }, opts, _contentService);
 
     }
 

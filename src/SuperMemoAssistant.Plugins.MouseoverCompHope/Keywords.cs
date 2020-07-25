@@ -31,18 +31,7 @@ namespace SuperMemoAssistant.Plugins.MouseoverCompHope
 
           string json = r.ReadToEnd();
           var jObj = json.Deserialize<Dictionary<string, string>>();
-          var adjustedJObj = new Dictionary<string, string>();
-
-          if (!jObj.IsNull())
-          {
-            foreach (var entry in jObj)
-            {
-              var val = Config.PathToIndexHtml + entry.Value;
-              adjustedJObj.Add(entry.Key, val);
-            }
-          }
-
-          return adjustedJObj;
+          return jObj;
 
         }
       }
