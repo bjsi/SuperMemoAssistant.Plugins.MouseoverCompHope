@@ -32,6 +32,7 @@
 namespace SuperMemoAssistant.Plugins.MouseoverCompHope
 {
   using System.Diagnostics.CodeAnalysis;
+  using Anotar.Serilog;
   using MouseoverPopup.Interop;
   using SuperMemoAssistant.Services;
   using SuperMemoAssistant.Services.IO.HotKeys;
@@ -85,8 +86,13 @@ namespace SuperMemoAssistant.Plugins.MouseoverCompHope
       var refs = new ReferenceRegexes(TitleRegexes, AuthorRegexes, LinkRegexes, SourceRegexes);
       var opts = new KeywordScanningOptions(refs, Keywords.KeywordMap, CategoryPathRegexes);
 
-      this.RegisterProvider(Name, new string[] { DictRegex }, opts, _contentService);
+      if (!this.RegisterProvider(Name, new string[] { DictRegex }, opts, _contentService))
+      {
+        LogTo.Error("Failed to register provider with MouseoverPopup");
+        return;
+      }
 
+      LogTo.Error("Successfully registered provider with MouseoverPopup");
 
     }
 
