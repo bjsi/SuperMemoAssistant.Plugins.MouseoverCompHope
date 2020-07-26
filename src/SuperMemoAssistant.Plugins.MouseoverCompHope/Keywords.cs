@@ -21,7 +21,7 @@ namespace SuperMemoAssistant.Plugins.MouseoverCompHope
       // var outPutDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase);
       // TODO: Wouldn't work unless hard coded ?????????????
 
-      var jsonPath = Path.Combine(@"C:\Users\james\SuperMemoAssistant\Plugins\Development\SuperMemoAssistant.Plugins.MouseoverCSDict\dictionary\dictionary_entries");
+      var jsonPath = Path.Combine(@"C:\Users\james\SuperMemoAssistant\Plugins\Development\SuperMemoAssistant.Plugins.MouseoverCompHope\dictionary\dictionary_entries.json");
 
       try
       {
@@ -30,8 +30,7 @@ namespace SuperMemoAssistant.Plugins.MouseoverCompHope
         {
 
           string json = r.ReadToEnd();
-          var jObj = json.Deserialize<Dictionary<string, string>>();
-          return jObj;
+          return json.Deserialize<Dictionary<string, string>>();
 
         }
       }

@@ -85,7 +85,8 @@ namespace SuperMemoAssistant.Plugins.MouseoverCompHope
       var refs = new ReferenceRegexes(TitleRegexes, AuthorRegexes, LinkRegexes, SourceRegexes);
       var opts = new KeywordScanningOptions(refs, Keywords.KeywordMap, CategoryPathRegexes);
 
-      this.RegisterProvider<IMouseoverSvc>(Name, new string[] { DictRegex }, opts, _contentService);
+      this.RegisterProvider(Name, new string[] { DictRegex }, opts, _contentService);
+
 
     }
 

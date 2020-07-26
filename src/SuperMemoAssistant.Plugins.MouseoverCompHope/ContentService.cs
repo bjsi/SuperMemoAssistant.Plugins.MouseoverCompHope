@@ -2,6 +2,7 @@
 using HtmlAgilityPack;
 using MouseoverPopup.Interop;
 using PluginManager.Interop.Sys;
+using SuperMemoAssistant.Extensions;
 using SuperMemoAssistant.Interop.SuperMemo.Elements.Builders;
 using SuperMemoAssistant.Services;
 using SuperMemoAssistant.Sys.Remoting;
@@ -21,7 +22,6 @@ namespace SuperMemoAssistant.Plugins.MouseoverCompHope
   public class ContentService : PerpetualMarshalByRefObject, IMouseoverContentProvider
   {
 
-    private MouseoverCompHopeCfg Config => Svc<MouseoverCompHopePlugin>.Plugin.Config;
     private string DictRegex = Svc<MouseoverCompHopePlugin>.Plugin.DictRegex;
 
     private readonly HttpClient _httpClient;
@@ -62,7 +62,7 @@ namespace SuperMemoAssistant.Plugins.MouseoverCompHope
     private async Task<PopupContent> GetDictionaryEntry(RemoteCancellationToken ct, string url)
     {
 
-      string response = await GetAsync(ct.Token(), url);
+      string response = await GetAsync(ct.Token(), url).ConfigureAwait(false);
       return CreatePopupContent(response, url);
 
     }
@@ -76,11 +76,15 @@ namespace SuperMemoAssistant.Plugins.MouseoverCompHope
       var doc = new HtmlDocument();
       doc.LoadHtml(content);
 
-      doc = doc.ConvRelToAbsLinks("https://www.computerhope.com");
+      doc.ConvRelToAbsLinks("https://www.computerhope.com");
 
       var article = doc.DocumentNode.SelectSingleNode("//article");
       if (article.IsNull())
         return null;
+
+      var imgs = article
+        ?.SelectNodes("//img")
+        ?.ForEach(x => x.ParentNode.RemoveChild(x)); // Remove imgs because they are always irrelevant
 
       var titleNode = article.SelectSingleNode("//h1");
 
@@ -91,7 +95,7 @@ namespace SuperMemoAssistant.Plugins.MouseoverCompHope
             </body>
           </html>";
 
-      html = String.Format(html, titleNode.InnerHtml);
+      html = String.Format(html, article.InnerHtml);
 
       var refs = new References();
       refs.Title = titleNode.InnerText;
