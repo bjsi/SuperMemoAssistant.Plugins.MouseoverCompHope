@@ -92,10 +92,11 @@ namespace SuperMemoAssistant.Plugins.MouseoverCompHope
           <html>
             <body>
               <p>{0}<p>
+              <small>{1}</small>
             </body>
           </html>";
 
-      html = String.Format(html, article.InnerHtml);
+      html = String.Format(html, article.InnerHtml, Svc<MouseoverCompHopePlugin>.Plugin.Name);
 
       var refs = new References();
       refs.Title = titleNode.InnerText;
